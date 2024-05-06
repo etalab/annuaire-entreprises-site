@@ -71,7 +71,7 @@ export function handleErrorFromServerSideProps<
     } catch (exception: any) {
       return {
         redirect: {
-          destination: 500,
+          destination: '/500',
           permanent: false,
         },
       };
