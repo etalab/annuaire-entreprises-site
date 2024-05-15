@@ -5,7 +5,6 @@ import { EAdministration } from '#models/administrations/EAdministration';
 import { IAPILoading, isAPILoading } from '#models/api-loading';
 import {
   IAPINotRespondingError,
-  isAPI404,
   isAPINotResponding,
 } from '#models/api-not-responding';
 import { IUniteLegale } from '#models/core/types';
@@ -26,15 +25,12 @@ async function MandatairesRCSSection({
   immatriculationRNE,
   mandatairesRCS,
 }: IProps) {
-  if (isAPI404(mandatairesRCS)) {
-    return null;
-  }
-
   return (
     <DataSection
       id="rne-dirigeants"
       title="Dirigeant(s)"
       isProtected
+      notFoundInfo={null}
       sources={[EAdministration.INFOGREFFE]}
       data={mandatairesRCS}
     >
