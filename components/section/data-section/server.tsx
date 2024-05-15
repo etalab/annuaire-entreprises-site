@@ -60,11 +60,9 @@ async function DataSectionServerAsync<T>({
     return null;
   }
   return (
-    <HeightTransition>
-      <FadeIn>
-        {/* eslint-disable-next-line react/jsx-props-no-spreading */}
-        <DataSection data={data} {...props} />
-      </FadeIn>
-    </HeightTransition>
+    <FadeIn>
+      {/* eslint-disable-next-line react/jsx-props-no-spreading */}
+      <DataSection data={data} {...props} />
+    </FadeIn>
   );
 }
