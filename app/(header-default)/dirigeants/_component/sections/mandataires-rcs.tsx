@@ -1,6 +1,6 @@
 import routes from '#clients/routes';
 import { Warning } from '#components-ui/alerts';
-import { DataSection } from '#components/section/data-section';
+import { AsyncDataSectionServer } from '#components/section/data-section/server';
 import { EAdministration } from '#models/administrations/EAdministration';
 import { IAPILoading, isAPILoading } from '#models/api-loading';
 import {
@@ -14,7 +14,7 @@ import { DirigeantContent } from './dirigeant-content';
 type IProps = {
   immatriculationRNE: IImmatriculationRNE | IAPINotRespondingError;
   uniteLegale: IUniteLegale;
-  mandatairesRCS: Array<IDirigeant> | IAPINotRespondingError;
+  mandatairesRCS: Promise<Array<IDirigeant> | IAPINotRespondingError>;
 };
 
 /**
@@ -26,7 +26,7 @@ async function MandatairesRCSSection({
   mandatairesRCS,
 }: IProps) {
   return (
-    <DataSection
+    <AsyncDataSectionServer
       id="rne-dirigeants"
       title="Dirigeant(s)"
       isProtected
@@ -80,7 +80,7 @@ async function MandatairesRCSSection({
           </>
         )
       }
-    </DataSection>
+    </AsyncDataSectionServer>
   );
 }
 export default MandatairesRCSSection;

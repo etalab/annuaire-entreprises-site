@@ -18,11 +18,10 @@ export async function DirigeantInformation({
   uniteLegale: IUniteLegale;
   session: ISession | null;
 }) {
-  const [immatriculationRNE, mandatairesRCS] = await Promise.all([
-    getImmatriculationRNE(uniteLegale.siren),
+  const mandatairesRCS =
     hasRights(session, EScope.mandatairesRCS) &&
-      getMandatairesRCS(uniteLegale.siren, session?.user?.siret),
-  ]);
+    getMandatairesRCS(uniteLegale.siren, session?.user?.siret);
+  const immatriculationRNE = await getImmatriculationRNE(uniteLegale.siren);
 
   if (
     !estDiffusible(uniteLegale) &&
