@@ -17,6 +17,6 @@ const ActesSection: React.FC<{
       />
     );
   }
-  return <AgentActesSection uniteLegale={uniteLegale} />;
+  return <AgentActesSection session={session} uniteLegale={uniteLegale} />;
 };
 export default ActesSection;

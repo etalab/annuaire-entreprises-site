@@ -13,6 +13,7 @@ import {
   isServicePublic,
 } from '#models/core/types';
 import { IActesRNE } from '#models/immatriculation';
+import { ISession } from '#models/user/session';
 import { formatDateLong } from '#utils/helpers';
 import { useAPIRouteData } from 'hooks/fetch/use-API-route-data';
 
@@ -22,10 +23,12 @@ const NoDocument = () => (
 
 export const AgentActesSection: React.FC<{
   uniteLegale: IUniteLegale;
-}> = ({ uniteLegale }) => {
+  session: ISession | null;
+}> = ({ uniteLegale, session }) => {
   const documents = useAPIRouteData(
     'espace-agent/rne/documents',
-    uniteLegale.siren
+    uniteLegale.siren,
+    null
   );
 
   return (
