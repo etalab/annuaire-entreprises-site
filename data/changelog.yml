@@ -1,4 +1,7 @@
 ---
+- date: 27/06/2024
+  body: |
+    Ajout du [numéro EORI](https://www.economie.gouv.fr/entreprises/numero-eori) dans le résumé.
 - date: 14/05/2024
   isProtected: true
   body: |
